@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,14 +8,8 @@ export class CartService {
   public cartItemList: any = [];
   public productList = new BehaviorSubject<any>([]);
   constructor() {}
-  getProduct() {
-    this.productList.asObservable();
-    // let res = [
-    //   {
-    //     data: 'working',
-    //   },
-    // ];
-    // return res;
+  getProduct(): Observable<any> {
+    return this.productList.asObservable();
   }
 
   setProduct(product: any) {
