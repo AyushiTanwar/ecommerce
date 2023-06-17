@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/service/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -17,5 +18,12 @@ export class CartComponent implements OnInit {
       this.product=res;
       this.grandTotal=this.cart.getTotalPrice()
     })
+  }
+
+  removeItem(item:any){
+    this.cart.removeCartItem(item)
+  }
+  emptyCart(){
+    this.cart.removeAllCart()
   }
 }

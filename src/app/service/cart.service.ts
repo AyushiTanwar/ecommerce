@@ -41,6 +41,8 @@ export class CartService {
         this.cartItemList.splice(index, 1);
       }
     });
+    // this is to update cart list when we remove an item
+    this.productList.next(this.cartItemList)
   }
 
   removeAllCart() {

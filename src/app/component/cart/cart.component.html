@@ -1,4 +1,7 @@
-<ng-container *ngIf="true">
+
+
+
+<ng-container *ngIf="product.length!=0">
     <div class="card">
 <table>
     <thead>
@@ -23,7 +26,7 @@
             <td>{{item.quantity}}</td>
             <td>{{item.total}}</td>
             <td>
-                <button class="btn btn-danger">
+                <button (click)="removeItem(item)" class="btn btn-danger">
                 <i class="fas fa-trash"></i>
             </button>
             </td>
@@ -34,7 +37,7 @@
 </ng-container>
 
 
-<ng-container *ngIf="false">
+<ng-container *ngIf="product.length==0">
 <div class="container">
     <div class="card">
         <h5 class="card-title">My Cart</h5>
@@ -43,7 +46,7 @@
         <img src="https://cdni.iconscout.com/illustration/premium/thumb/confusing-woman-due-to-empty-cart-4558760-3780056.png" alt="" >
         <h4>Your cart is empty</h4>
         <h6>Add Item to it now</h6>
-        <button class="btn btn-primary">Shop Now</button>
+        <button class="btn btn-primary" routerLink="/products">Shop Now</button>
     </div>
 </div>
 </ng-container>
